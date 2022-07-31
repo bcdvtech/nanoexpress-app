@@ -1,0 +1,110 @@
+<!--div class="row">
+    <div class="row">
+        <div class="col"> <button type="button" class="btn btn-light">Upload Local Content</button></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Video Link</label>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" [value]="videoUrl" />
+        </div>
+    
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" onClick="publish()">Publish Content</button>
+        </div>
+    </div>
+</div -->
+<!--div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Live Stram</h5>
+      <div class="embed-responsive embed-responsive-21by9">
+        <app-video [options]="videoOptions" [url]="videoUrl"></app-video>
+      </div>
+      
+    </div>
+  </div -->
+  <div class="row">
+      <div class="col">
+          <button class="btn btn-dark" (click)="createNewStream()">Create Stream</button>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td class="text-end">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of streamList; let i = index">
+                    <td>{{item.title}}</td>
+                    <td>{{item.channel}}</td>
+                    <td>
+                        <button class="btn btn-dark me-2">Edit</button>
+                        <button class="btn btn-danger me-2">Delete</button>
+                        <button class="btn btn-primary me-2" (click)="onView(i)">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <!--div class="row">
+    <div class="col">
+      <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">Customer</span>
+          </div>
+          <select class="form-control" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger">Live Connections</button>
+    </div>
+</div -->
+
+<div class="modal" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-fullscreen"  >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" (click)="closePopup(1)"></button>
+              </div>
+              <div class="modal-body">
+                <app-add-stream [channelList]="channels" (updateStream)="updateStream($event)"></app-add-stream>
+              </div>
+            </div>
+    
+    </div>
+</div>
+
+<div class="modal" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" [ngStyle]="{'display':displayStyle2}">
+    <div class="modal-dialog modal-fullscreen"  >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" (click)="closePopup(2)"></button>
+              </div>
+              <div class="modal-body">
+                <ng-container *ngIf="selectedStream.serverUrl !== null">
+                    <app-youtube [url]="selectedStream.serverUrl"></app-youtube>
+                </ng-container>>
+              </div>
+            </div>
+    </div>
+</div>
+
+

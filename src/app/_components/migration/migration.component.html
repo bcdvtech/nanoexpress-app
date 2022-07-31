@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col">
+        
+        <fieldset class="form-group p-3 field-set">
+            <legend>Integrated Hosting</legend>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Current Channel</label>
+                </div>
+                <select class="form-control" [(ngModel)]="selectedChannel">
+                  <option [ngValue]="null">Choose...</option>
+                  <option *ngFor="let source of channelList; let i=index;" [ngValue]="source.id">{{source.name}}</option>
+                </select>
+              </div>
+
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="">IP Address</span>
+                </div>
+                <input type="text" class="form-control" />
+              </div>
+        </fieldset>
+    </div>
+</div>

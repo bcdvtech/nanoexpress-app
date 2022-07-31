@@ -1,0 +1,161 @@
+
+<ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let nav of navLinks; let i=index">
+      <span class="nav-link" [class.active]="nav.active"aria-current="page" (click)="onChangeNav(i)">{{nav.name}}</span>
+    </li>
+  </ul>
+
+  <ng-container *ngIf="selectedTab!.id == 1">
+
+        <div class="row  mb-3">
+            <div class="col">
+                <button class="btn btn-dark">Create Stream</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+    
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Select A Channel</label>
+                    </div>
+                    <select class="form-control" [(ngModel)]="selectedChannel">
+                    <option [ngValue]="null">Choose...</option>
+                    <option *ngFor="let source of channelList; let i=index;" [ngValue]="source.id">{{source.name}}</option>
+                    </select>
+                </div>
+                <button class="btn btn-danger me-2">Delete Channel</button>
+                <button class="btn btn-primary">Show Feed</button>
+    
+            </div>
+        </div>
+  
+  </ng-container>
+
+  <ng-container *ngIf="selectedTab!.id == 2">
+    <div class="row">
+        <div class="col">
+
+            <div class="input-group mb-4">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Tags Override</span>
+                </div>
+
+                <textarea  class="form-control" rows="1" ></textarea>
+            </div>
+
+            <div class="input-group mb-4">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Description Override</span>
+                </div>
+                <textarea  class="form-control" rows="1" ></textarea>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" >Genre(s)</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="" multiple >
+                        <option [ngValue]="null">Choose...</option>
+                        <!--option *ngFor="let source of genreList; let i=index;" [ngValue]="source.id">{{source.name}}</option -->
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="input-group mb-4">
+                <button class="btn btn-dark" >Save</button>
+            </div>
+
+        </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedTab!.id == 3">
+    <div class="row">
+        <div class="col">
+
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Select A Channel</label>
+                </div>
+                <select class="form-control" [(ngModel)]="selectedChannel">
+                <option [ngValue]="null">Choose...</option>
+                <option *ngFor="let source of channelList; let i=index;" [ngValue]="source.id">{{source.name}}</option>
+                </select>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Stream Key</span>
+                </div>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Stream Server URL</span>
+                </div>
+                <input type="text" class="form-control"/>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" >Stream Mobile URL</span>
+                </div>
+                <input type="text" class="form-control" />
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" >Genre(s)</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="" multiple >
+                        <option [ngValue]="null">Choose...</option>
+                        <!--option *ngFor="let source of genreList; let i=index;" [ngValue]="source.id">{{source.name}}</option -->
+                    </select>
+                </div>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Assign True TV</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Live Steam Title</span>
+                </div>
+                <input type="text" class="form-control" />
+            </div>
+
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Description</span>
+                </div>
+                <textarea  class="form-control" rows="1" ></textarea>
+            </div>
+
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Tags</span>
+                </div>
+                <textarea  class="form-control" rows="1" ></textarea>
+            </div>
+
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Thumbnail</span>
+                </div>
+                <input type="file" class="form-control">
+            </div>
+
+            <div class="input-group mb-4">
+                <button class="btn btn-dark" >Create</button>
+            </div>
+
+        </div>
+    </div>
+  </ng-container>

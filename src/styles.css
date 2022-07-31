@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+.field-set{
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.nav-link{
+    cursor: pointer;
+}
+
+.input-group-text{
+    background-color: #2c2449 !important;
+    color: #fff !important;
+}
+
+.nav-tabs .nav-item .nav-link{
+    background-color: #2c2449 !important;
+    color: #fff !important; 
+}
